@@ -1,0 +1,15 @@
+You can compile and run this program for three different architectures: Native,
+SPARC, and MSP430. By default, a native binary will be compiled.
+
+To build for SPARC, issue the command:
+ARCH=sparc make
+
+To build for MSP430, issue the command:
+ARCH=msp430 make
+
+You can run the compiled program by issuing the command:
+ARCH=<target> make run
+
+Replacing <target> with either ``sparc'' or ``msp430''. You will need the
+msp430 simulator that comes with gdb. To run the sparc target, you will need
+the qemu-sparc userland emulator.

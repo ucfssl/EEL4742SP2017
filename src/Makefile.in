@@ -1,0 +1,65 @@
+OBJ:=$(SRC:%.c=%.o)
+OBJ:=$(OBJ:%.S=%.o)
+
+# if you only care about MSP430 stuff, uncomment these lines and optionally
+# remove all lines that check the C Compiler.
+# CC		=	msp430-elf-gcc
+# LD		=	msp430-elf-gcc
+# AS		=	msp430-elf-gcc
+# SIZE	=	msp430-elf-size
+# RUN		=	msp430-elf-run
+# STRIP	=	msp430-elf-strip
+
+ifeq ($(MCU),)
+	# use the simulator if no MCU is declared
+	ifeq ($(CC),msp430-elf-gcc)
+		MCU:=msp430-sim
+        CFLAGS += -mcpu=msp430
+	endif
+	CFLAGS	+= -g
+else
+	ifeq ($(CC),msp430-elf-gcc)
+		MCU		:=$(MCU)
+		CFLAGS	+= -mmcu=$(MCU)
+	endif
+endif
+
+CFLAGS	+=	-I../common \
+			-ffunction-sections
+ifeq ($(CC),msp430-elf-gcc)
+LDFLAGS +=	-mmcu=$(MCU) -mcpu=msp430
+endif
+LDFLAGS +=	-Wl,--gc-sections
+LIBS	+=
+
+.PHONY: all clean run strip
+
+all: $(ELF)
+	@echo -e "    SIZ\t$(ELF)"
+	@$(SIZE) $(ELF)
+
+clean:
+	@echo -e "    RM\t$(ELF) $(OBJ)"
+	@-rm -rf $(ELF) $(OBJ)
+
+run: $(ELF)
+	@echo -e "    RUN\t$(ELF)"
+	@$(RUN) $(RUNOPTS) ./$(ELF)
+
+strip: $(ELF)
+	@echo -e "    STP\t$(ELF)"
+	@$(STRIP) $(ELF)
+
+$(ELF): $(OBJ)
+	@echo -e "    LD\t$(ELF)"
+	@$(LD) -o $(ELF) $(OBJ) $(LDFLAGS) $(LIBS)
+
+%.o: %.c
+	@echo -e "    CC\t$<"
+	@$(CC) $(CFLAGS) -c -o $@ $<
+
+%.o: %.S
+	@echo -e "    AS\t$<"
+	@$(AS) $(ASFLAGS) -c -o $@ $<
+
+# vim:set ts=4 tw=79 syntax=make et:
