@@ -7,6 +7,8 @@
 !*.py
 !*.c
 !*.h
+!*.hpp
+!*.cpp
 !*.lds
 !Makefile
 !Makefile.in

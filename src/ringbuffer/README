@@ -1,0 +1,109 @@
+Basic ring buffer
+===================
+
+Two implementations are provided, a C and a C++ implementation. The C++
+implementation is far more flexible, as it utilizes C++'s templating engine.
+The C implementation may need some modification to suit your needs.
+
+Using the C++ version
+=======================
+Copy the header file in your project. Include the header file in any file where
+you use the ring buffer.
+
+#include "ringbuffer.hpp"
+
+Proceed to declare a ring buffer. You must pass the template arguments. The
+first argument is the type you wish the ring buffer to store, the second
+argument is the size of the ring buffer.
+
+ringbuffer<int, 32> rb;
+
+Proceed to use the ring buffer by accessing its methods:
+
+rb.put(10);			// places 10 to the ring buffer
+					// this method will throw an exception if the ring buffer
+					// is full
+myvar = rb.get();	// gets a value from the tail of the ring buffer
+					// this method will throw an exception if the ring buffer
+					// is empty
+rb.empty()			// returns true if the ring buffer is empty
+rb.full()			// returns true if the ring buffer is full
+
+Using the C version
+=====================
+You must copy the header file and the file containing the implementation in
+your project. You must include the header file in any file where you utilize
+the ring buffer.
+
+#include "ringbuffer.h"
+
+Proceed to declare a ring buffer:
+
+struct ringbuffer rb;
+
+Then initialize it:
+
+rb_init(&rb);
+
+Proceed to use the ring buffer by using the ring buffer functions:
+
+rb_put(&rb, 10);		/* places 10 into the ring buffer
+						 * this function will return 0 upon success and non-zero
+						 * upon failure (ring buffer is full)
+						 */
+myvar = rb_get(&rb);	/* gets the value at the tail of the ring bufer
+						 * this method will return a sentinel if the ring
+						 * buffer is empty
+						 */
+rb_empty(&rb)			/* returns non-zero if the ring buffer is empty */
+rb_full(&rb)			/* returns non-zero if the ring buffer is full */
+
+Notice that all the functions take a pointer to the ring buffer as the first
+argument!
+
+Changing the C implementation
+===============================
+Edit the constant BUFFERSIZE to match the desired size of the ring buffer.
+
+Edit the struct defining the ring buffer to contain the type you wish to
+utilize. Example:
+
+struct ringbuffer {
+	size_t head;
+	size_t tail;
+	size_t count;
+	struct my_type container[BUFFERSIZE];
+};
+
+Change the signature of the rb_put() function to match your type. If using an
+aggregate type such as a struct, you may want to pass a pointer to the
+aggregate type instead of a copy of the object:
+
+int rb_put(struct ringbuffer* rb, const struct my_type* value);
+
+Change the implementation of the rb_put() function to act accordingly. Example:
+
+int rb_put(struct ringbuffer* rb, const struct my_type* value) {
+	/* checks remain the same */
+	rb->container[head].first_aggregate = i->first_aggregate;
+	rb->container[head].second_aggregate = i->second_aggregate;
+	/* ... */
+}
+
+
+Change the signature of the rb_get() function to match your type. If using an
+aggregate type such as a struct, you may want to return a pointer to the
+aggregate type instead of a copy of the object:
+
+const struct my_type* rb_get(const struct ringbuffer* rb);
+
+Change the implementation of the rb_get() function to act accordingly. Example:
+
+const struct my_type* rb_get(const struct ringbuffer* rb) {
+	if(rb_empty(rb)) {
+		/* return NULL if the buffer is full */
+		return (struct my_type*)NULL;
+	}
+	/* tail modifications remain the same */
+	return &(rb->container[rb->tail]);
+}
