@@ -8,7 +8,7 @@
 		((reg) & (bit))
 
 #define bit_is_clear(reg, bit)	\
-		(((!(reg)) & (bit)))
+		(!(((reg)) & (bit)))
 
 #define loop_until_bit_is_set(reg, bit) \
 		do { } while(bit_is_clear(reg, bit))

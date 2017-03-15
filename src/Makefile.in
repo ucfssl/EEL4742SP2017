@@ -32,11 +32,14 @@ endif
 LDFLAGS +=	-Wl,--gc-sections
 LIBS	+=
 
-.PHONY: all clean run strip
+.PHONY: all clean debug run strip
 
 all: $(ELF)
 	@echo -e "    SIZ\t$(ELF)"
 	@$(SIZE) $(ELF)
+
+debug: CFLAGS += -g
+debug: all
 
 clean:
 	@echo -e "    RM\t$(ELF) $(OBJ)"
