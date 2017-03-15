@@ -1,0 +1,150 @@
+Prerequisites
+===============
+You will need the following packages in your system:
+
+avr-binutils
+avr-libc
+avr-gcc
+avr-gdb
+make
+
+Linux Users: Most major distributions will have these packages in their
+repositories. Check your package manager to install them.
+
+OS X/macOS Users: Check MacPorts at link [1].
+
+Windows Users: This particular toolchain should ship with the Arduino
+environment. Ensure that the binaries for the compiler are in your path and
+that it is capable to of finding the C library. Alternatively, see link in [2].
+
+
+[1] https://www.macports.org/ports.php?by=name&substr=avr
+[2] http://www.atmel.com/tools/atmelavrtoolchainforwindows.aspx
+
+
+Compiling the source code
+============================
+Run ``make'' in your terminal, your output should be similar to the following:
+
+$ make
+    CC	example.c
+    AS	startup.S
+	AS  vectors.S
+    LD	example.elf
+    SIZ	example.elf
+   text	   data	    bss	    dec	    hex	filename
+     80	      8	      8	     96	     60	example.elf
+
+Debugging
+============
+For easier usage in a debugger, compile with debug symbols enabled:
+
+$ make clean && make debug
+
+Then, run the binary in gdb:
+
+$ avr-gdb ./example.elf
+[output omitted]
+Reading symbols from example.elf...done.
+(gdb)
+
+Load the program into the simulator by issuing the following commands at the
+gdb prompt:
+
+(gdb) target sim
+(gdb) load
+
+Your output should look similar to:
+
+(gdb) target sim
+Connected to the simulator.
+(gdb) load
+Loading section .data, size 0x8 lma 0x50
+Loading section .text, size 0x50 lma 0x0
+Start address 0x0
+Transfer rate: 704 bits in <1 sec.
+(gdb) 
+
+At the gdb prompt, you can add breakpoints:
+
+(gdb) break _start
+Breakpoint 1 at 0x40: file startup.S, line 22.
+
+At this point, you are free to start executing the program:
+
+(gdb) run
+Starting program: /home/tron/src/git/EEL4742/src/hw_1_hint/example.elf 
+
+Breakpoint 1, _start () at startup.S:22
+22		eor r1, r1
+(gdb)
+
+You can get information on the state of the registers at any time:
+
+(gdb) info registers
+r0             0x0	0
+r1             0x0	0
+r2             0x0	0
+r3             0x0	0
+r4             0x0	0
+r5             0x0	0
+r6             0x0	0
+r7             0x0	0
+r8             0x0	0
+r9             0x0	0
+r10            0x0	0
+r11            0x0	0
+r12            0x0	0
+r13            0x0	0
+r14            0x0	0
+r15            0x0	0
+r16            0x0	0
+r17            0x0	0
+r18            0x0	0
+r19            0x0	0
+r20            0x0	0
+r21            0x0	0
+r22            0x0	0
+r23            0x0	0
+r24            0x0	0
+r25            0x0	0
+r26            0x0	0
+r27            0x0	0
+r28            0x0	0
+r29            0x0	0
+r30            0x0	0
+r31            0x0	0
+SREG           0x0	0
+SP             0x0	0x0
+PC2            0x40	64
+pc             0x40	0x40 <_start>
+
+You can also single step through execution and check the changes in registers:
+
+(gdb) stepi
+24		out _SFR_IO_ADDR(SREG), r1
+(gdb) stepi
+29		ldi r16, hi8(RAMEND)	/* get the end of RAM */
+(gdb) [press enter, this executes the last command one more time]
+30		ldi r17, lo8(RAMEND)	/* RAMEND is defined in <avr/io.h> */
+(gdb) print $r16
+$1 = 8
+
+You can also dump memory to make sure you are initializing things correctly:
+(gdb) x/16bx source
+0x800100 <source>:	0x00	0x00	0x00	0x00	0x00	0x00	0x00	0x00
+0x800108 <target>:	0x00	0x00	0x00	0x00	0x00	0x00	0x00	0x00
+
+Please note that the simulator zeroes all memory. In real hardware, the .bss
+section is not guaranteed to be zeroed in SRAM at startup. Your program should
+perform this operation.
+
+You can restart execution at any point by setting the program counter to 0.
+
+(gdb) set $pc = 0
+(gdb) stepi
+_start () at startup.S:22
+22		eor r1, r1
+(gdb) 
+
+Happy debugging.
