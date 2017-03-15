@@ -85,8 +85,8 @@ Change the implementation of the rb_put() function to act accordingly. Example:
 
 int rb_put(struct ringbuffer* rb, const struct my_type* value) {
 	/* checks remain the same */
-	rb->container[head].first_aggregate = i->first_aggregate;
-	rb->container[head].second_aggregate = i->second_aggregate;
+	rb->container[rb->head].first_aggregate = value->first_aggregate;
+	rb->container[rb->head].second_aggregate = value->second_aggregate;
 	/* ... */
 }
 

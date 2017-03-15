@@ -1,0 +1,50 @@
+OBJ:=$(SRC:%.c=%.o)
+OBJ:=$(OBJ:%.S=%.o)
+
+CFLAGS	+=	-ffunction-sections \
+			-fdata-sections \
+            -mmcu=$(MCU) \
+            -Os
+
+LDFLAGS +=	-mmcu=$(MCU) \
+            -Wl,--gc-sections
+
+ASFLAGS +=  -mmcu=$(MCU) \
+			-fdata-sections \
+            -ffunction-sections \
+            -Os
+
+LIBS	+=
+
+.PHONY: all clean debug run strip
+
+all: $(ELF)
+	@echo -e "    SIZ\t$(ELF)"
+	@$(SIZE) $(ELF)
+
+clean:
+	@echo -e "    RM\t$(ELF) $(OBJ)"
+	@-rm -rf $(ELF) $(OBJ)
+
+debug: CFLAGS += -g
+debug: all
+
+run: $(ELF)
+	@echo -e "    RUN\t$(ELF)"
+	@$(RUN) $(RUNOPTS) ./$(ELF)
+
+strip: $(ELF)
+	@echo -e "    STP\t$(ELF)"
+	@$(STRIP) $(ELF)
+
+$(ELF): $(OBJ)
+	@echo -e "    LD\t$(ELF)"
+	@$(LD) -o $(ELF) $(OBJ) $(LDFLAGS) $(LIBS)
+
+%.o: %.c
+	@echo -e "    CC\t$<"
+	@$(CC) $(CFLAGS) -c -o $@ $<
+
+%.o: %.S
+	@echo -e "    AS\t$<"
+	@$(AS) $(ASFLAGS) -c -o $@ $<

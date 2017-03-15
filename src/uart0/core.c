@@ -28,7 +28,7 @@ main(void) {
 
 	uart_init();
 
-	__bis_SR_register(CPUOFF | GIE);
+	__bis_SR_register(SCG1 |SCG0 | CPUOFF | GIE);
 	while(1) {
 		;
 	}
