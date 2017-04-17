@@ -1,0 +1,516 @@
+    ffee:	52 c4
+    fffe:	04 c3
+    c000:	0c 48       	mov	r8,	r12	;
+    c002:	65 6c       	addc.b	@r12,	r5	;
+    c004:	6c 6f       	addc.b	@r15,	r12	;
+    c006:	2c 20       	jnz	$+90     	;abs 0xc060
+    c008:	77 6f       	addc.b	@r15+,	r7	;
+    c00a:	72 6c       	addc.b	@r12+,	r2	;
+    c00c:	64 21       	jnz	$+714    	;abs 0xc2d6
+    c00e:	0a 0d       	mova	@r13,	r10	;
+    c010:	3d 3d       	jmp	$+636    	;abs 0xc28c
+    c012:	3d 3d       	jmp	$+636    	;abs 0xc28e
+    c014:	3d 3d       	jmp	$+636    	;abs 0xc290
+    c016:	3d 3d       	jmp	$+636    	;abs 0xc292
+    c018:	3d 3d       	jmp	$+636    	;abs 0xc294
+    c01a:	3d 3d       	jmp	$+636    	;abs 0xc296
+    c01c:	3d 3d       	jmp	$+636    	;abs 0xc298
+    c01e:	3d 3d       	jmp	$+636    	;abs 0xc29a
+    c020:	3d 0a 0d 52 	mova	21005(r10),r13	;0x0520d
+    c024:	65 61       	addc.b	@r1,	r5	;
+    c026:	64 79       	subc.b	@r9,	r4	;
+    c028:	20 74       	subc	@r4,	r0	;
+    c02a:	6f 20       	jnz	$+224    	;abs 0xc10a
+    c02c:	63 61       	.word	0x6163;	????
+    c02e:	70 74       	subc.b	@r4+,	r0	;
+    c030:	75 72       	subc.b	#8,	r5	;r2 As==11
+    c032:	65 20       	jnz	$+204    	;abs 0xc0fe
+    c034:	74 68       	addc.b	@r8+,	r4	;
+    c036:	65 20       	jnz	$+204    	;abs 0xc102
+    c038:	66 6c       	addc.b	@r12,	r6	;
+    c03a:	61 67       	addc.b	@r7,	r1	;
+    c03c:	73 3f       	jmp	$-280    	;abs 0xbf24
+    c03e:	20 54       	add	@r4,	r0	;
+    c040:	68 65       	addc.b	@r5,	r8	;
+    c042:	73 65       	.word	0x6573;	????
+    c044:	20 61       	addc	@r1,	r0	;
+    c046:	72 65       	addc.b	@r5+,	r2	;
+    c048:	20 74       	subc	@r4,	r0	;
+    c04a:	68 65       	addc.b	@r5,	r8	;
+    c04c:	20 72       	subc	#4,	r0	;r2 As==10
+    c04e:	75 6c       	addc.b	@r12+,	r5	;
+    c050:	65 73       	subc.b	#2,	r5	;r3 As==10
+    c052:	3a 0a 0d 20 	mova	8205(r10),r10	;0x0200d
+    c056:	2a 20       	jnz	$+86     	;abs 0xc0ac
+    c058:	59 6f 75 20 	addc.b	8309(r15),r9	;0x02075
+    c05c:	63 61       	.word	0x6163;	????
+    c05e:	6e 20       	jnz	$+222    	;abs 0xc13c
+    c060:	75 73       	subc.b	#-1,	r5	;r3 As==11
+    c062:	65 20       	jnz	$+204    	;abs 0xc12e
+    c064:	77 68       	addc.b	@r8+,	r7	;
+    c066:	61 74       	subc.b	@r4,	r1	;
+    c068:	65 76       	subc.b	@r6,	r5	;
+    c06a:	65 72       	subc.b	#4,	r5	;r2 As==10
+    c06c:	20 74       	subc	@r4,	r0	;
+    c06e:	6f 6f       	addc.b	@r15,	r15	;
+    c070:	6c 73       	subc.b	#2,	r12	;r3 As==10
+    c072:	20 79       	subc	@r9,	r0	;
+    c074:	6f 75       	subc.b	@r5,	r15	;
+    c076:	20 66       	addc	@r6,	r0	;
+    c078:	69 6e       	addc.b	@r14,	r9	;
+    c07a:	64 20       	jnz	$+202    	;abs 0xc144
+    c07c:	6f 6e       	addc.b	@r14,	r15	;
+    c07e:	6c 69       	addc.b	@r9,	r12	;
+    c080:	6e 65       	addc.b	@r5,	r14	;
+    c082:	20 74       	subc	@r4,	r0	;
+    c084:	6f 20       	jnz	$+224    	;abs 0xc164
+    c086:	72 65       	addc.b	@r5+,	r2	;
+    c088:	76 65       	addc.b	@r5+,	r6	;
+    c08a:	72 73       	subc.b	#-1,	r2	;r3 As==11
+    c08c:	65 0a 0d 20 	mova	r10,	&335885	; 0x5200d
+    c090:	20 20       	jnz	$+66     	;abs 0xc0d2
+    c092:	65 6e       	addc.b	@r14,	r5	;
+    c094:	67 69       	addc.b	@r9,	r7	;
+    c096:	6e 65       	addc.b	@r5,	r14	;
+    c098:	65 72       	subc.b	#4,	r5	;r2 As==10
+    c09a:	20 74       	subc	@r4,	r0	;
+    c09c:	68 69       	addc.b	@r9,	r8	;
+    c09e:	73 20       	jnz	$+232    	;abs 0xc186
+    c0a0:	62 69       	addc.b	@r9,	r2	;
+    c0a2:	6e 61       	addc.b	@r1,	r14	;
+    c0a4:	72 79       	subc.b	@r9+,	r2	;
+    c0a6:	2e 0a 0d 20 	mova	&663565,r14	;0xa200d
+    c0aa:	2a 20       	jnz	$+86     	;abs 0xc100
+    c0ac:	59 6f 75 20 	addc.b	8309(r15),r9	;0x02075
+    c0b0:	61 72       	subc.b	#4,	r1	;r2 As==10
+    c0b2:	65 20       	jnz	$+204    	;abs 0xc17e
+    c0b4:	6e 6f       	addc.b	@r15,	r14	;
+    c0b6:	74 20       	jnz	$+234    	;abs 0xc1a0
+    c0b8:	61 6c       	addc.b	@r12,	r1	;
+    c0ba:	6c 6f       	addc.b	@r15,	r12	;
+    c0bc:	77 65       	addc.b	@r5+,	r7	;
+    c0be:	64 20       	jnz	$+202    	;abs 0xc188
+    c0c0:	74 6f       	addc.b	@r15+,	r4	;
+    c0c2:	20 6d       	addc	@r13,	r0	;
+    c0c4:	6f 64       	addc.b	@r4,	r15	;
+    c0c6:	69 66       	addc.b	@r6,	r9	;
+    c0c8:	79 20       	jnz	$+244    	;abs 0xc1bc
+    c0ca:	74 68       	addc.b	@r8+,	r4	;
+    c0cc:	65 20       	jnz	$+204    	;abs 0xc198
+    c0ce:	62 69       	addc.b	@r9,	r2	;
+    c0d0:	6e 61       	addc.b	@r1,	r14	;
+    c0d2:	72 79       	subc.b	@r9+,	r2	;
+    c0d4:	2e 20       	jnz	$+94     	;abs 0xc132
+    c0d6:	54 68 69 73 	addc.b	29545(r8),r4	;0x07369
+    c0da:	20 69       	addc	@r9,	r0	;
+    c0dc:	6e 63       	addc.b	#2,	r14	;r3 As==10
+    c0de:	6c 75       	subc.b	@r5,	r12	;
+    c0e0:	64 65       	addc.b	@r5,	r4	;
+    c0e2:	73 0a 0d 20 	mova	r10,	8205(r3); 0x0200d
+    c0e6:	20 20       	jnz	$+66     	;abs 0xc128
+    c0e8:	61 6c       	addc.b	@r12,	r1	;
+    c0ea:	6c 20       	jnz	$+218    	;abs 0xc1c4
+    c0ec:	63 6f       	.word	0x6f63;	????
+    c0ee:	64 65       	addc.b	@r5,	r4	;
+    c0f0:	20 61       	addc	@r1,	r0	;
+    c0f2:	6e 64       	addc.b	@r4,	r14	;
+    c0f4:	20 64       	addc	@r4,	r0	;
+    c0f6:	61 74       	subc.b	@r4,	r1	;
+    c0f8:	61 20       	jnz	$+196    	;abs 0xc1bc
+    c0fa:	73 65       	.word	0x6573;	????
+    c0fc:	67 6d       	addc.b	@r13,	r7	;
+    c0fe:	65 6e       	addc.b	@r14,	r5	;
+    c100:	74 73       	subc.b	#-1,	r4	;r3 As==11
+    c102:	2e 0a 0d 20 	mova	&663565,r14	;0xa200d
+    c106:	2a 20       	jnz	$+86     	;abs 0xc15c
+    c108:	59 6f 75 72 	addc.b	29301(r15),r9	;0x07275
+    c10c:	20 6f       	addc	@r15,	r0	;
+    c10e:	6e 6c       	addc.b	@r12,	r14	;
+    c110:	79 20       	jnz	$+244    	;abs 0xc204
+    c112:	6d 65       	addc.b	@r5,	r13	;
+    c114:	74 68       	addc.b	@r8+,	r4	;
+    c116:	6f 64       	addc.b	@r4,	r15	;
+    c118:	20 6f       	addc	@r15,	r0	;
+    c11a:	66 20       	jnz	$+206    	;abs 0xc1e8
+    c11c:	69 6e       	addc.b	@r14,	r9	;
+    c11e:	70 75       	subc.b	@r5+,	r0	;
+    c120:	74 20       	jnz	$+234    	;abs 0xc20a
+    c122:	69 73       	subc.b	#2,	r9	;r3 As==10
+    c124:	20 74       	subc	@r4,	r0	;
+    c126:	68 72       	subc.b	#4,	r8	;r2 As==10
+    c128:	6f 75       	subc.b	@r5,	r15	;
+    c12a:	67 68       	addc.b	@r8,	r7	;
+    c12c:	20 74       	subc	@r4,	r0	;
+    c12e:	68 65       	addc.b	@r5,	r8	;
+    c130:	20 55       	add	@r5,	r0	;
+    c132:	41 52       	add.b	r2,	r1	;
+    c134:	54 2e       	jc	$-854    	;abs 0xbdde
+    c136:	0a 0d       	mova	@r13,	r10	;
+    c138:	0a 54       	add	r4,	r10	;
+    c13a:	79 70 65 20 	subc.b	#8293,	r9	;#0x2065
+    c13e:	60 72       	subc.b	#4,	r0	;r2 As==10
+    c140:	75 6c       	addc.b	@r12+,	r5	;
+    c142:	65 73       	subc.b	#2,	r5	;r3 As==10
+    c144:	27 20       	jnz	$+80     	;abs 0xc194
+    c146:	74 6f       	addc.b	@r15+,	r4	;
+    c148:	20 73       	subc	#2,	r0	;r3 As==10
+    c14a:	68 6f       	addc.b	@r15,	r8	;
+    c14c:	77 20       	jnz	$+240    	;abs 0xc23c
+    c14e:	74 68       	addc.b	@r8+,	r4	;
+    c150:	69 73       	subc.b	#2,	r9	;r3 As==10
+    c152:	20 6d       	addc	@r13,	r0	;
+    c154:	65 73       	subc.b	#2,	r5	;r3 As==10
+    c156:	73 61       	.word	0x6173;	????
+    c158:	67 65       	addc.b	@r5,	r7	;
+    c15a:	20 61       	addc	@r1,	r0	;
+    c15c:	67 61       	addc.b	@r1,	r7	;
+    c15e:	69 6e       	addc.b	@r14,	r9	;
+    c160:	2e 0a 0d 0a 	mova	&657933,r14	;0xa0a0d
+    c164:	0d 48       	mov	r8,	r13	;
+    c166:	61 70       	subc.b	@r0,	r1	;
+    c168:	70 79       	subc.b	@r9+,	r0	;
+    c16a:	20 68       	addc	@r8,	r0	;
+    c16c:	61 63       	addc.b	#2,	r1	;r3 As==10
+    c16e:	6b 69       	addc.b	@r9,	r11	;
+    c170:	6e 67       	addc.b	@r7,	r14	;
+    c172:	21 0a 0a 0d 	mova	&658698,r1	;0xa0d0a
+    c176:	0a 76       	subc	r6,	r10	;
+    c178:	c1 00       	mova	r0,	r1	;
+    c17a:	00 00       	beq			
+    c17c:	77 01 69 6e 	mova	r1,	28265(r7); 0x06e69
+    c180:	70 75       	subc.b	@r5+,	r0	;
+    c182:	74 3e       	jmp	$-790    	;abs 0xbe6c
+    c184:	20 84       	sub	@r4,	r0	;
+    c186:	c1 00       	mova	r0,	r1	;
+    c188:	07 00       	mova	@r0,	r7	;
+    c18a:	33 31       	jn	$+616    	;abs 0xc3f2
+    c18c:	33 33       	jn	$-408    	;abs 0xbff4
+    c18e:	37 33       	jn	$-400    	;abs 0xbffe
+    c190:	8f c1 00 00 	bic	r1,	0(r15)	;
+    c194:	06 00       	mova	@r0,	r6	;
+    c196:	72 75       	subc.b	@r5+,	r2	;
+    c198:	6c 65       	addc.b	@r5,	r12	;
+    c19a:	73 9a       	.word	0x9a73;	????
+    c19c:	c1 00       	mova	r0,	r1	;
+    c19e:	00 00       	beq			
+    c1a0:	05 00       	mova	@r0,	r5	;
+    c1a2:	00 00       	beq			
+    c1a4:	ac c1 b0 c1 	bic	@r1,	-15952(r12); 0xc1b0
+    c1a8:	b4 c1 b8 c1 	bic	@r1+,	-15944(r4); 0xc1b8
+    c1ac:	bc c1 ec c1 	bic	@r1+,	-15892(r12); 0xc1ec
+    c1b0:	ee c1 28 c2 	bic.b	@r1,	-15832(r14); 0xc228
+    c1b4:	2a c2       	bic	#4,	r10	;r2 As==10
+    c1b6:	48 c2       	bic.b	r2,	r8	;
+    c1b8:	4a c2       	bic.b	r2,	r10	;
+    c1ba:	80 c2 54 68 	bic	r2,	0x6854	; PC rel. 0x2a10
+    c1be:	65 73       	subc.b	#2,	r5	;r3 As==10
+    c1c0:	65 20       	jnz	$+204    	;abs 0xc28c
+    c1c2:	61 72       	subc.b	#4,	r1	;r2 As==10
+    c1c4:	65 20       	jnz	$+204    	;abs 0xc290
+    c1c6:	6e 6f       	addc.b	@r15,	r14	;
+    c1c8:	74 20       	jnz	$+234    	;abs 0xc2b2
+    c1ca:	74 68       	addc.b	@r8+,	r4	;
+    c1cc:	65 20       	jnz	$+204    	;abs 0xc298
+    c1ce:	66 6c       	addc.b	@r12,	r6	;
+    c1d0:	61 67       	addc.b	@r7,	r1	;
+    c1d2:	73 20       	jnz	$+232    	;abs 0xc2ba
+    c1d4:	79 6f       	addc.b	@r15+,	r9	;
+    c1d6:	75 20       	jnz	$+236    	;abs 0xc2c2
+    c1d8:	61 72       	subc.b	#4,	r1	;r2 As==10
+    c1da:	65 20       	jnz	$+204    	;abs 0xc2a6
+    c1dc:	6c 6f       	addc.b	@r15,	r12	;
+    c1de:	6f 6b       	addc.b	@r11,	r15	;
+    c1e0:	69 6e       	addc.b	@r14,	r9	;
+    c1e2:	67 20       	jnz	$+208    	;abs 0xc2b2
+    c1e4:	66 6f       	addc.b	@r15,	r6	;
+    c1e6:	72 2e       	jc	$-794    	;abs 0xbecc
+    c1e8:	0a 0d       	mova	@r13,	r10	;
+    c1ea:	e9 c1 2e 00 	bic.b	@r1,	46(r9)	; 0x002e
+    c1ee:	57 68 61 74 	addc.b	29793(r8),r7	;0x07461
+    c1f2:	20 69       	addc	@r9,	r0	;
+    c1f4:	73 20       	jnz	$+232    	;abs 0xc2dc
+    c1f6:	61 20       	jnz	$+196    	;abs 0xc2ba
+    c1f8:	66 6c       	addc.b	@r12,	r6	;
+    c1fa:	61 67       	addc.b	@r7,	r1	;
+    c1fc:	3f 20       	jnz	$+128    	;abs 0xc27c
+    c1fe:	41 20       	jnz	$+132    	;abs 0xc282
+    c200:	6d 69       	addc.b	@r9,	r13	;
+    c202:	73 65       	.word	0x6573;	????
+    c204:	72 61       	addc.b	@r1+,	r2	;
+    c206:	62 6c       	addc.b	@r12,	r2	;
+    c208:	65 20       	jnz	$+204    	;abs 0xc2d4
+    c20a:	6c 69       	addc.b	@r9,	r12	;
+    c20c:	74 74       	subc.b	@r4+,	r4	;
+    c20e:	6c 65       	addc.b	@r5,	r12	;
+    c210:	20 70       	subc	@r0,	r0	;
+    c212:	69 6c       	addc.b	@r12,	r9	;
+    c214:	65 20       	jnz	$+204    	;abs 0xc2e0
+    c216:	6f 66       	addc.b	@r6,	r15	;
+    c218:	20 73       	subc	#2,	r0	;r3 As==10
+    c21a:	65 63       	addc.b	#2,	r5	;r3 As==10
+    c21c:	72 65       	addc.b	@r5+,	r2	;
+    c21e:	74 73       	subc.b	#-1,	r4	;r3 As==11
+    c220:	21 0a 0d 22 	mova	&664077,r1	;0xa220d
+    c224:	c2 00       	mova	r0,	r2	;
+    c226:	00 00       	beq			
+    c228:	35 00 46 6c 	mova	27718(r0),r5	;PC rel. 0x12e70
+    c22c:	61 67       	addc.b	@r7,	r1	;
+    c22e:	73 3a       	jl	$-792    	;abs 0xbf16
+    c230:	20 74       	subc	@r4,	r0	;
+    c232:	68 65       	addc.b	@r5,	r8	;
+    c234:	20 66       	addc	@r6,	r0	;
+    c236:	69 6e       	addc.b	@r14,	r9	;
+    c238:	61 6c       	addc.b	@r12,	r1	;
+    c23a:	20 66       	addc	@r6,	r0	;
+    c23c:	72 6f       	addc.b	@r15+,	r2	;
+    c23e:	6e 74       	subc.b	@r4,	r14	;
+    c240:	69 65       	addc.b	@r5,	r9	;
+    c242:	72 2e       	jc	$-794    	;abs 0xbf28
+    c244:	0a 0d       	mova	@r13,	r10	;
+    c246:	45 c2       	bic.b	r2,	r5	;
+    c248:	1c 00       	mova	@r0+,	r12	;
+    c24a:	4e 6f       	addc.b	r15,	r14	;
+    c24c:	74 20       	jnz	$+234    	;abs 0xc336
+    c24e:	61 20       	jnz	$+196    	;abs 0xc312
+    c250:	66 6c       	addc.b	@r12,	r6	;
+    c252:	61 67       	addc.b	@r7,	r1	;
+    c254:	2e 20       	jnz	$+94     	;abs 0xc2b2
+    c256:	53 6f       	.word	0x6f53;	????
+    c258:	20 6c       	addc	@r12,	r0	;
+    c25a:	6f 6e       	addc.b	@r14,	r15	;
+    c25c:	67 2c       	jc	$+208    	;abs 0xc32c
+    c25e:	20 61       	addc	@r1,	r0	;
+    c260:	6e 64       	addc.b	@r4,	r14	;
+    c262:	20 74       	subc	@r4,	r0	;
+    c264:	68 61       	addc.b	@r1,	r8	;
+    c266:	6e 6b       	addc.b	@r11,	r14	;
+    c268:	73 20       	jnz	$+232    	;abs 0xc350
+    c26a:	66 6f       	addc.b	@r15,	r6	;
+    c26c:	72 20       	jnz	$+230    	;abs 0xc352
+    c26e:	61 6c       	addc.b	@r12,	r1	;
+    c270:	6c 20       	jnz	$+218    	;abs 0xc34a
+    c272:	74 68       	addc.b	@r8+,	r4	;
+    c274:	65 20       	jnz	$+204    	;abs 0xc340
+    c276:	66 69       	addc.b	@r9,	r6	;
+    c278:	73 68       	.word	0x6873;	????
+    c27a:	2e 0a 0d 7c 	mova	&687117,r14	;0xa7c0d
+    c27e:	c2 00       	mova	r0,	r2	;
+    c280:	33 00 00 00 	mova	0(r0),	r3	;
+    c284:	90 c2 ae c2 	bic	&0xc2ae,0xc2d2	;0xc2ae, PC rel. 0x855a
+    c288:	d2 c2 
+    c28a:	ac c2 d0 c2 	bic	#4,	-15664(r12);r2 As==10, 0xc2d0
+    c28e:	00 c3       	bic	#0,	r0	;r3 As==00
+    c290:	59 6f 75 20 	addc.b	8309(r15),r9	;0x02075
+    c294:	68 61       	addc.b	@r1,	r8	;
+    c296:	76 65       	addc.b	@r5+,	r6	;
+    c298:	20 63       	addc	#2,	r0	;r3 As==10
+    c29a:	61 70       	subc.b	@r0,	r1	;
+    c29c:	74 75       	subc.b	@r5+,	r4	;
+    c29e:	72 65       	addc.b	@r5+,	r2	;
+    c2a0:	64 20       	jnz	$+202    	;abs 0xc36a
+    c2a2:	66 6c       	addc.b	@r12,	r6	;
+    c2a4:	61 67       	addc.b	@r7,	r1	;
+    c2a6:	20 41       	br	@r1		;
+    c2a8:	0d 0a       	mova	@r10,	r13	;
+    c2aa:	a9 c2 1a 00 	bic	#4,	26(r9)	;r2 As==10, 0x001a
+    c2ae:	59 6f 75 20 	addc.b	8309(r15),r9	;0x02075
+    c2b2:	68 61       	addc.b	@r1,	r8	;
+    c2b4:	76 65       	addc.b	@r5+,	r6	;
+    c2b6:	20 6e       	addc	@r14,	r0	;
+    c2b8:	6f 77       	subc.b	@r7,	r15	;
+    c2ba:	20 6f       	addc	@r15,	r0	;
+    c2bc:	62 74       	subc.b	@r4,	r2	;
+    c2be:	61 69       	addc.b	@r9,	r1	;
+    c2c0:	6e 65       	addc.b	@r5,	r14	;
+    c2c2:	64 20       	jnz	$+202    	;abs 0xc38c
+    c2c4:	66 6c       	addc.b	@r12,	r6	;
+    c2c6:	61 67       	addc.b	@r7,	r1	;
+    c2c8:	20 42       	br	#4		;r2 As==10
+    c2ca:	0d 0a       	mova	@r10,	r13	;
+    c2cc:	cb c2 00 00 	bic.b	r2,	0(r11)	;
+    c2d0:	1e 00       	mova	@r0+,	r14	;
+    c2d2:	46 6c       	addc.b	r12,	r6	;
+    c2d4:	61 67       	addc.b	@r7,	r1	;
+    c2d6:	20 43       	br	#2		;r3 As==10
+    c2d8:	20 6f       	addc	@r15,	r0	;
+    c2da:	62 74       	subc.b	@r4,	r2	;
+    c2dc:	61 69       	addc.b	@r9,	r1	;
+    c2de:	6e 65       	addc.b	@r5,	r14	;
+    c2e0:	64 2e       	jc	$-822    	;abs 0xbfaa
+    c2e2:	20 4e       	br	@r14		;
+    c2e4:	6f 20       	jnz	$+224    	;abs 0xc3c4
+    c2e6:	6d 6f       	addc.b	@r15,	r13	;
+    c2e8:	72 65       	addc.b	@r5+,	r2	;
+    c2ea:	20 66       	addc	@r6,	r0	;
+    c2ec:	6c 61       	addc.b	@r1,	r12	;
+    c2ee:	67 73       	subc.b	#2,	r7	;r3 As==10
+    c2f0:	20 74       	subc	@r4,	r0	;
+    c2f2:	6f 20       	jnz	$+224    	;abs 0xc3d2
+    c2f4:	66 69       	addc.b	@r9,	r6	;
+    c2f6:	6e 64       	addc.b	@r4,	r14	;
+    c2f8:	2e 0d 0a fa 	mova	&915978,r14	;0xdfa0a
+    c2fc:	c2 00       	mova	r0,	r2	;
+    c2fe:	00 00       	beq			
+    c300:	29 00 00 00 	mova	&0,	r9	;
+    c304:	b2 40 80 5a 	mov	#23168,	&0x0120	;#0x5a80
+    c308:	20 01 
+    c30a:	31 40 00 04 	mov	#1024,	r1	;#0x0400
+    c30e:	34 40 de c4 	mov	#-15138,r4	;#0xc4de
+    c312:	35 40 00 02 	mov	#512,	r5	;#0x0200
+    c316:	03 3c       	jmp	$+8      	;abs 0xc31e
+    c318:	b5 44 00 00 	mov	@r4+,	0(r5)	;
+    c31c:	25 53       	incd	r5		;
+    c31e:	35 90 16 02 	cmp	#534,	r5	;#0x0216
+    c322:	fa 23       	jnz	$-10     	;abs 0xc318
+    c324:	34 40 18 02 	mov	#536,	r4	;#0x0218
+    c328:	03 3c       	jmp	$+8      	;abs 0xc330
+    c32a:	84 43 00 00 	mov	#0,	0(r4)	;r3 As==00
+    c32e:	24 53       	incd	r4		;
+    c330:	34 90 1e 02 	cmp	#542,	r4	;#0x021e
+    c334:	fa 23       	jnz	$-10     	;abs 0xc32a
+    c336:	b0 12 44 c3 	call	#-15548	;#0xc344
+    c33a:	32 c2       	dint			
+    c33c:	03 43       	nop			
+    c33e:	32 d0 10 00 	bis	#16,	r2	;#0x0010
+    c342:	ff 3f       	jmp	$+0      	;abs 0xc342
+    c344:	b0 12 80 c4 	call	#-15232	;#0xc480
+    c348:	b0 12 f6 c3 	call	#-15370	;#0xc3f6
+    c34c:	b0 12 9e c3 	call	#-15458	;#0xc39e
+    c350:	b0 12 ac c3 	call	#-15444	;#0xc3ac
+    c354:	32 d0 18 00 	bis	#24,	r2	;#0x0018
+    c358:	03 43       	nop			
+    c35a:	7c 40 0a 00 	mov.b	#10,	r12	;#0x000a
+    c35e:	b0 12 2a c4 	call	#-15318	;#0xc42a
+    c362:	3c 40 8a c1 	mov	#-15990,r12	;#0xc18a
+    c366:	3d 40 00 02 	mov	#512,	r13	;#0x0200
+    c36a:	1e 42 94 c1 	mov	&0xc194,r14	;0xc194
+    c36e:	b0 12 da c3 	call	#-15398	;#0xc3da
+    c372:	0c 93       	cmp	#0,	r12	;r3 As==00
+    c374:	03 20       	jnz	$+8      	;abs 0xc37c
+    c376:	92 12 10 02 	call	&0x0210		;
+    c37a:	0f 3c       	jmp	$+32     	;abs 0xc39a
+    c37c:	3c 40 96 c1 	mov	#-15978,r12	;#0xc196
+    c380:	3d 40 00 02 	mov	#512,	r13	;#0x0200
+    c384:	1e 42 a0 c1 	mov	&0xc1a0,r14	;0xc1a0
+    c388:	b0 12 da c3 	call	#-15398	;#0xc3da
+    c38c:	0c 93       	cmp	#0,	r12	;r3 As==00
+    c38e:	03 20       	jnz	$+8      	;abs 0xc396
+    c390:	b0 12 9e c3 	call	#-15458	;#0xc39e
+    c394:	02 3c       	jmp	$+6      	;abs 0xc39a
+    c396:	b0 12 ba c3 	call	#-15430	;#0xc3ba
+    c39a:	da 3f       	jmp	$-74     	;abs 0xc350
+    c39c:	30 41       	ret			
+    c39e:	3c 40 00 c0 	mov	#-16384,r12	;#0xc000
+    c3a2:	1d 42 7c c1 	mov	&0xc17c,r13	;0xc17c
+    c3a6:	b0 12 36 c4 	call	#-15306	;#0xc436
+    c3aa:	30 41       	ret			
+    c3ac:	3c 40 7e c1 	mov	#-16002,r12	;#0xc17e
+    c3b0:	1d 42 88 c1 	mov	&0xc188,r13	;0xc188
+    c3b4:	b0 12 36 c4 	call	#-15306	;#0xc436
+    c3b8:	30 41       	ret			
+    c3ba:	1c 42 18 02 	mov	&0x0218,r12	;0x0218
+    c3be:	1c 4c a4 c1 	mov	-15964(r12),r12	;0xffffc1a4
+    c3c2:	1d 4c 02 00 	mov	2(r12),	r13	;
+    c3c6:	2d 4d       	mov	@r13,	r13	;
+    c3c8:	2c 4c       	mov	@r12,	r12	;
+    c3ca:	b0 12 36 c4 	call	#-15306	;#0xc436
+    c3ce:	a2 53 18 02 	incd	&0x0218		;
+    c3d2:	b2 f0 06 00 	and	#6,	&0x0218	;
+    c3d6:	18 02 
+    c3d8:	30 41       	ret			
+    c3da:	09 3c       	jmp	$+20     	;abs 0xc3ee
+    c3dc:	1e 83       	dec	r14		;
+    c3de:	ed 9c 00 00 	cmp.b	@r12,	0(r13)	;
+    c3e2:	03 24       	jz	$+8      	;abs 0xc3ea
+    c3e4:	6c 4c       	mov.b	@r12,	r12	;
+    c3e6:	6c 8d       	sub.b	@r13,	r12	;
+    c3e8:	30 41       	ret			
+    c3ea:	1c 53       	inc	r12		;
+    c3ec:	1d 53       	inc	r13		;
+    c3ee:	0e 93       	cmp	#0,	r14	;r3 As==00
+    c3f0:	f5 23       	jnz	$-20     	;abs 0xc3dc
+    c3f2:	0c 43       	clr	r12		;
+    c3f4:	30 41       	ret			
+    c3f6:	d2 d3 61 00 	bis.b	#1,	&0x0061	;r3 As==01
+    c3fa:	c2 43 60 00 	mov.b	#0,	&0x0060	;r3 As==00
+    c3fe:	f2 d0 80 00 	bis.b	#128,	&0x0061	;#0x0080
+    c402:	61 00 
+    c404:	f2 40 06 00 	mov.b	#6,	&0x0062	;
+    c408:	62 00 
+    c40a:	c2 43 63 00 	mov.b	#0,	&0x0063	;r3 As==00
+    c40e:	f2 40 81 00 	mov.b	#129,	&0x0064	;#0x0081
+    c412:	64 00 
+    c414:	d2 c3 61 00 	bic.b	#1,	&0x0061	;r3 As==01
+    c418:	f2 40 06 00 	mov.b	#6,	&0x0026	;
+    c41c:	26 00 
+    c41e:	f2 40 06 00 	mov.b	#6,	&0x0041	;
+    c422:	41 00 
+    c424:	d2 d3 01 00 	bis.b	#1,	&0x0001	;r3 As==01
+    c428:	30 41       	ret			
+    c42a:	e2 b3 03 00 	bit.b	#2,	&0x0003	;r3 As==10
+    c42e:	fd 27       	jz	$-4      	;abs 0xc42a
+    c430:	c2 4c 67 00 	mov.b	r12,	&0x0067	;
+    c434:	30 41       	ret			
+    c436:	09 12       	push	r9		;
+    c438:	0a 12       	push	r10		;
+    c43a:	09 4c       	mov	r12,	r9	;
+    c43c:	0a 43       	clr	r10		;
+    c43e:	04 3c       	jmp	$+10     	;abs 0xc448
+    c440:	7c 49       	mov.b	@r9+,	r12	;
+    c442:	1a 53       	inc	r10		;
+    c444:	b0 12 2a c4 	call	#-15318	;#0xc42a
+    c448:	0a 9d       	cmp	r13,	r10	;
+    c44a:	fa 23       	jnz	$-10     	;abs 0xc440
+    c44c:	3a 41       	pop	r10		;
+    c44e:	39 41       	pop	r9		;
+    c450:	30 41       	ret			
+    c452:	04 12       	push	r4		;
+    c454:	05 12       	push	r5		;
+    c456:	54 42 66 00 	mov.b	&0x0066,r4	;0x0066
+    c45a:	c2 44 67 00 	mov.b	r4,	&0x0067	;
+    c45e:	15 42 1c 02 	mov	&0x021c,r5	;0x021c
+    c462:	c5 44 00 02 	mov.b	r4,	512(r5)	; 0x0200
+    c466:	92 53 1c 02 	inc	&0x021c		;
+    c46a:	74 90 0d 00 	cmp.b	#13,	r4	;#0x000d
+    c46e:	05 20       	jnz	$+12     	;abs 0xc47a
+    c470:	82 43 1c 02 	mov	#0,	&0x021c	;r3 As==00
+    c474:	b1 c0 18 00 	bic	#24,	4(r1)	;#0x0018
+    c478:	04 00 
+    c47a:	35 41       	pop	r5		;
+    c47c:	34 41       	pop	r4		;
+    c47e:	00 13       	reti			
+    c480:	f2 90 ff 00 	cmp.b	#255,	&0x10ff	;#0x00ff
+    c484:	ff 10 
+    c486:	06 20       	jnz	$+14     	;abs 0xc494
+    c488:	d2 43 22 00 	mov.b	#1,	&0x0022	;r3 As==01
+    c48c:	d2 43 21 00 	mov.b	#1,	&0x0021	;r3 As==01
+    c490:	32 d0 10 00 	bis	#16,	r2	;#0x0010
+    c494:	c2 43 56 00 	mov.b	#0,	&0x0056	;r3 As==00
+    c498:	d2 42 ff 10 	mov.b	&0x10ff,&0x0057	;0x10ff
+    c49c:	57 00 
+    c49e:	d2 42 fe 10 	mov.b	&0x10fe,&0x0056	;0x10fe
+    c4a2:	56 00 
+    c4a4:	30 41       	ret			
+    c4a6:	0c 12       	push	r12		;
+    c4a8:	0c 43       	clr	r12		;
+    c4aa:	b0 12 be c4 	call	#-15170	;#0xc4be
+    c4ae:	3c 41       	pop	r12		;
+    c4b0:	30 41       	ret			
+    c4b2:	0c 12       	push	r12		;
+    c4b4:	1c 43       	mov	#1,	r12	;r3 As==01
+    c4b6:	b0 12 be c4 	call	#-15170	;#0xc4be
+    c4ba:	3c 41       	pop	r12		;
+    c4bc:	30 41       	ret			
+    c4be:	0c 12       	push	r12		;
+    c4c0:	0d 12       	push	r13		;
+    c4c2:	09 12       	push	r9		;
+    c4c4:	09 4c       	mov	r12,	r9	;
+    c4c6:	09 59       	rla	r9		;
+    c4c8:	1c 49 84 c2 	mov	-15740(r9),r12	;0xffffc284
+    c4cc:	1d 49 8a c2 	mov	-15734(r9),r13	;0xffffc28a
+    c4d0:	2d 4d       	mov	@r13,	r13	;
+    c4d2:	b0 12 36 c4 	call	#-15306	;#0xc436
+    c4d6:	39 41       	pop	r9		;
+    c4d8:	3d 41       	pop	r13		;
+    c4da:	3c 41       	pop	r12		;
+    c4dc:	30 41       	ret			

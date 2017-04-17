@@ -1,0 +1,28 @@
+Capture the Flag
+==================
+
+Using whatever tools you can find, find a way to utilize the program's code to
+print the flags on your serial terminal.
+
+You can use whatever tools you find on the internet to help you with analyzing
+the binary. You may need to exploit bugs in the software to complete this
+assignment. Your answers must include the methods you utilized to reverse
+engineer the binary, your testing methodology, and the series of inputs that
+you provide to the program to trigger the desire effects.
+
+Grading scale:
+- First flag:	75 points
+- Second flag:	25 points
+- Third flag:	10 points
+
+
+Files
+=======
+binary.elf: Executable and Linkable Format (ELF) file with code for the
+            MSP430G2553 microcontroller.
+binary.hdr:	ELF headers for the file. Shows the sections of the file and the
+            places they occupy on the memory layout of the microcontroller.
+binary.dsm: Disassembled binary. Shows the disassembled binary. Note that you
+            will not be able to utilize this listing to reassemble the binary.
+binary.hex: Intel HEX file containing the binary. Some programs will be able to
+            parse this file and use it to programm your microcontroller.
